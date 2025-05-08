@@ -1,0 +1,428 @@
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@700&display=swap');
+
+/* GENERAL */
+
+* {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
+}
+
+body {
+    background-color: #F7F7F7 ;
+}
+
+/* NAVBAR */
+
+.navbar {
+    background-color: #ECF0F1;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
+.nav-link {
+    font-weight: bold;
+    color: black;
+    padding: 10px;
+}
+.nav-link:hover, .nav-link.active {
+    text-decoration: underline;
+}
+.nav-icons img {
+    height: 27px;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+.a-lligues {
+    text-decoration: none;
+}
+
+.a-lligues .card {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.a-lligues:hover .card {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 991px) {
+    .navbar-collapse {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .navbar-nav {
+        width: 100%;
+        text-align: right;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-icons {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+
+    .nav-icons img {
+        width: 30px;
+        height: auto;
+    }
+}
+
+
+/* LLIGUES PROXIMES */
+
+.card{
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+.img-fixed {
+    height: 200px;
+    object-fit: cover;
+}
+
+/* per a que si els noms de les lligues son molt
+llargs surtin punts suspensius en comptes del
+nom sencer */
+.text-truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.btn-logout{
+    border: none;
+    padding: 0;
+}
+
+.nav-link {
+    color: #000 !important;
+    font-weight: bold !important;
+}
+
+.nav-link.active {
+    color: #000 !important;
+    font-weight: bold;
+}
+
+.btn-lg {
+    color: #000;
+    background-color: #2ECC71;
+    padding: 15px 30px;
+    font-size: 16px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border: 1px solid #ffffff;
+}
+
+.btn-lg:hover {
+    color: #000;
+    background-color: #2ECC71;
+    border: 1px solid #ffffff;
+    transform: scale(1.1);
+}
+
+.lema {
+    color: white;
+    -webkit-text-stroke: 1px black;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.btn-change-background {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border: #000 solid 1px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-change-background:hover {
+    background-color: #ffffff;
+    border: #000 solid 1px;
+}
+
+.body-principal {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    max-height: 100vh;
+    transition: background-image 1s ease-in-out;
+    position: relative;
+}
+
+@media (max-width: 999px) {
+    .btn-lg {
+        background-color: #2ECC71;
+        font-size: 16px;
+        border-radius: 10px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        border: 1px solid #ffffff;
+    }
+
+    .btn-lg:hover {
+        background-color: #2ECC71;
+        border: 1px solid #ffffff;
+        transform: scale(1.1);
+    }
+
+    .lema {
+        color: white;
+        -webkit-text-stroke: 1px black;
+        font-weight: bold;
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .btn-lg {
+        background-color: #2ECC71;
+        font-size: 16px;
+        border-radius: 10px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        border: 1px solid #ffffff;
+    }
+
+    .btn-lg:hover {
+        background-color: #2ECC71;
+        border: 1px solid #ffffff;
+        transform: scale(1.1);
+    }
+
+    .lema {
+        color: white;
+        -webkit-text-stroke: 1px black;
+        font-weight: bold;
+        font-size: 1.6rem;
+    }
+    #view-map{
+        height: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn-lg {
+        background-color: #2ECC71;
+        font-size: 14px;
+        border-radius: 10px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        border: 1px solid #ffffff;
+    }
+
+    .btn-lg:hover {
+        background-color: #2ECC71;
+        border: 1px solid #ffffff;
+        transform: scale(1.1);
+    }
+
+    .lema {
+        color: white;
+        -webkit-text-stroke: 1px black;
+        font-weight: bold;
+        font-size: 1.3rem;
+    }
+    #view-map{
+        height: 300px;
+    }
+}
+
+/* LOGIN */
+
+.btn-entrar, .btn-guardar, .btn-crear{
+    background-color: #E67E22;
+    border: 1px solid black;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-entrar:hover, .btn-crear:hover {
+    background-color: #E67E22;
+    border: 1px solid black;
+    transform: scale(1.1);
+}
+
+.btn-guardar:hover {
+    background-color: #e87613;
+    border: 1px solid black;
+}
+
+.btn-crear{
+    margin-bottom: 40px;
+}
+
+#view-map{
+    height: 400px;
+}
+
+#edit-map{
+    height: 400px;
+}
+
+.foto_nav{
+    aspect-ratio: 1 / 1;
+}
+
+.foto_equip{
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+    display: block;
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+}
+
+#editForm{
+    margin-bottom: 50px;
+}
+
+/* perque aixi a lapartat de preguntes
+frequents no hi hagi els estils de
+bootstrap predeterminats */
+
+.accordion-button:focus {
+    box-shadow: none !important;
+}
+
+.accordion-button:not(.collapsed) {
+    border: 2px solid #E67E22 !important;
+    background-color: white !important;
+    color: black !important;
+}
+
+.accordion-button {
+    font-weight: bold;
+}
+
+.accordion-body{
+    margin-left: 30px;
+}
+
+.accordion {
+    box-shadow: 0 4px 8px rgba(230, 126, 34, 0.5);
+    border-radius: 8px;
+}
+.chat {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #2ECC71;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.chat a {
+    all: unset;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chat img {
+    width: 35px;
+    height: 35px;
+}
+
+.notification-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border: 1px solid #E67E22;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+    padding: 1rem 1.5rem;
+    background-color: #fff;
+}
+
+.notification-content p {
+    margin-bottom: 0.5rem;
+    word-wrap: break-word;
+}
+
+.notification-footer {
+    text-align: right;
+    font-size: 0.875rem;
+    color: #6c757d;
+}
+
+
+
+@media (max-width: 768px) {
+
+    .foto_equip{
+        height: 100px;
+        width: 100px;
+    }
+
+    #view-map, #edit-map{
+        height: 400px;
+    }
+    .notification-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .notification-footer {
+        text-align: left;
+        margin-top: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .foto_equip{
+        height: 70px;
+        width: 70px;
+    }
+
+    .mail-text {
+        max-width: 200px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    nom_equip{
+        font-size: 1rem;
+    }
+
+    .div_info{
+        margin-top: 25px;
+    }
+
+    #view-map, #edit-map{
+        height: 300px;
+    }
+    .notification-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .notification-footer {
+        text-align: left;
+        margin-top: 0.5rem;
+    }
+}
+
+
