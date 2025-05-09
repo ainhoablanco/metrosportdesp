@@ -314,7 +314,7 @@ bootstrap predeterminats */
     box-shadow: 0 4px 8px rgba(230, 126, 34, 0.5);
     border-radius: 8px;
 }
-.chat {
+.xat {
     position: fixed;
     bottom: 20px;
     right: 20px;
@@ -330,7 +330,7 @@ bootstrap predeterminats */
     z-index: 1000;
 }
 
-.chat a {
+.xat a {
     all: unset;
     width: 100%;
     height: 100%;
@@ -339,7 +339,7 @@ bootstrap predeterminats */
     align-items: center;
 }
 
-.chat img {
+.xat img {
     width: 35px;
     height: 35px;
 }

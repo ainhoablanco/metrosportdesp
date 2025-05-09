@@ -1,4 +1,4 @@
-@extends('layouts.chat')
+@extends('layouts.missatge')
 
 @section('content')
 <div id="app" class="container mt-4">

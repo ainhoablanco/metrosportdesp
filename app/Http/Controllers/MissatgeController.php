@@ -9,11 +9,11 @@ use App\Models\Lliga;
 use Illuminate\Support\Facades\Auth; // Asegúrate de importar Auth
 use Illuminate\Support\Facades\Validator;
 
-class ChatController extends Controller
+class MissatgeController extends Controller
 {
     public function index()
     {
-        return view('chat.index');
+        return view('missatge.index');
     }
 
     public function getMissatges()

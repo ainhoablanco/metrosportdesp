@@ -1,4 +1,4 @@
-@extends('layouts.chat')
+@extends('layouts.missatge')
 @section('title')
  · Perfil
 @endsection

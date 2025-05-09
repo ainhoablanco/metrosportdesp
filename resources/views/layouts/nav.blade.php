@@ -72,7 +72,7 @@
         @yield('content')
     </div>
 
-    @yield('chat')
+    @yield('missatge')
 
 </body>
 </html>

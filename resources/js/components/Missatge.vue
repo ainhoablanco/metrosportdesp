@@ -1,32 +1,32 @@
 <template>
-  <div class="chat-container">
-    <h1>Chat: {{ lliga.nom_lliga }}</h1>
-    <div class="chat-box" ref="chatBox">
+  <div class="xat-container">
+    <h1>Xat: {{ lliga.nom_lliga }}</h1>
+    <div class="xat-box" ref="xatBox">
       <template v-for="(missatge, index) in missatges" :key="missatge.id_missatge">
         <!-- Mostrar el día si es diferente al del mensaje anterior -->
-        <div v-if="shouldShowDate(index)" class="chat-date">
+        <div v-if="shouldShowDate(index)" class="xat-date">
           {{ formatDate(missatge.timestamp) }}
         </div>
         <div
-          class="chat-message"
+          class="xat-message"
           :class="{
-            'chat-message-sent': missatge.origen.usuari_id_usuari === userId,
-            'chat-message-received': missatge.origen.usuari_id_usuari !== userId
+            'xat-message-sent': missatge.origen.usuari_id_usuari === userId,
+            'xat-message-received': missatge.origen.usuari_id_usuari !== userId
           }"
         >
-          <div class="chat-message-header">
+          <div class="xat-message-header">
             <strong>{{ missatge.origen.nom_equip }}</strong>
           </div>
-          <div class="chat-message-body">
+          <div class="xat-message-body">
             <p>{{ missatge.text }}</p>
           </div>
-          <div class="chat-message-timestamp">
+          <div class="xat-message-timestamp">
             <small>{{ formatTime(missatge.timestamp) }}</small>
           </div>
         </div>
       </template>
     </div>
-    <div class="chat-input">
+    <div class="xat-input">
       <input
         type="text"
         v-model="newMessage"
@@ -56,7 +56,7 @@ export default {
   methods: {
     fetchMissatges() {
       axios
-        .get("/chatMissatges")
+        .get("/missatgeMissatges")
         .then((response) => {
           this.missatges = response.data.missatges;
           this.userId = response.data.userId;
@@ -79,7 +79,7 @@ export default {
       this.newMessage = "";
 
       axios
-        .post("/chatMissatges", messageData)
+        .post("/missatgeMissatges", messageData)
         .then(() => {
           this.fetchMissatges(); // Volver a llamar a la API para obtener los nuevos mensajes
         })
@@ -88,9 +88,9 @@ export default {
         });
     },
     scrollToBottom() {
-      const chatBox = this.$refs.chatBox;
-      if (chatBox) {
-        chatBox.scrollTop = chatBox.scrollHeight;
+      const xatBox = this.$refs.xatBox;
+      if (xatBox) {
+        xatBox.scrollTop = xatBox.scrollHeight;
       }
     },
     shouldShowDate(index) {
@@ -113,7 +113,7 @@ export default {
 
 <style>
 /* Contenedor principal */
-.chat-container {
+.xat-container {
   max-width: 900px;
   margin: 0 auto;
   font-family: Arial, sans-serif;
@@ -122,8 +122,7 @@ export default {
   flex-direction: column;
 }
 
-/* Caja del chat */
-.chat-box {
+.xat-box {
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 10px;
@@ -134,8 +133,8 @@ export default {
   flex-direction: column;
 }
 
-/* Entrada del chat */
-.chat-input {
+/* Entrada del xat */
+.xat-input {
   display: flex;
   margin-top: 10px;
   flex-direction: row; /* Mantener el input y el botón en una fila */
@@ -143,7 +142,7 @@ export default {
 }
 
 /* Campo de texto */
-.chat-input input {
+.xat-input input {
   flex: 1;
   padding: 10px;
   border: 1px solid #ccc;
@@ -152,7 +151,7 @@ export default {
 }
 
 /* Botón de enviar */
-.chat-input button {
+.xat-input button {
   padding: 10px 20px;
   background-color: #E67E22;
   border: 1px solid black;
@@ -160,36 +159,36 @@ export default {
   cursor: pointer;
 }
 
-.chat-input button:hover {
+.xat-input button:hover {
   background-color: #D35400;
   transform: scale(1.1);
 }
 
 /* Responsividad para pantallas pequeñas */
 @media (max-width: 768px) {
-  .chat-container {
+  .xat-container {
     max-width: 100%;
     padding: 0 10px;
   }
 
-  .chat-box {
+  .xat-box {
     height: auto; /* Ajustar dinámicamente */
   }
 
-  .chat-message {
+  .xat-message {
     max-width: 90%; /* Aumentar el ancho de los mensajes */
   }
 
-  .chat-input {
+  .xat-input {
     flex-direction: row; /* Mantener el input y el botón en una fila */
   }
 
-  .chat-input input {
+  .xat-input input {
     margin-bottom: 0; /* Eliminar margen inferior */
     margin-right: 10px; /* Espaciado entre el input y el botón */
   }
 
-  .chat-input button {
+  .xat-input button {
     width: auto; /* Ajustar el ancho del botón */
     padding: 10px; /* Reducir el padding */
   }
@@ -197,41 +196,41 @@ export default {
 
 /* Responsividad para pantallas muy pequeñas (teléfonos) */
 @media (max-width: 480px) {
-  .chat-box {
+  .xat-box {
     height: auto; /* Ajustar dinámicamente */
   }
 
-  .chat-message {
+  .xat-message {
     font-size: 0.9em; /* Reducir el tamaño de fuente de los mensajes */
   }
 
-  .chat-message-header {
+  .xat-message-header {
     font-size: 0.8em; /* Reducir el tamaño de fuente del encabezado */
   }
 
-  .chat-message-body {
+  .xat-message-body {
     font-size: 0.9em; /* Reducir el tamaño de fuente del cuerpo */
   }
 
-  .chat-message-timestamp {
+  .xat-message-timestamp {
     font-size: 0.7em; /* Reducir el tamaño de fuente del timestamp */
   }
 
-  .chat-input {
+  .xat-input {
     flex-direction: row; /* Mantener el input y el botón en una fila */
   }
 
-  .chat-input input {
+  .xat-input input {
     margin-right: 10px; /* Espaciado entre el input y el botón */
   }
 
-  .chat-input button {
+  .xat-input button {
     width: auto; /* Ajustar el ancho del botón */
     padding: 10px; /* Reducir el padding */
   }
 }
 
-.chat-date {
+.xat-date {
   text-align: center;
   font-size: 0.9em;
   color: #555;
@@ -239,7 +238,7 @@ export default {
   font-weight: bold;
 }
 
-.chat-message {
+.xat-message {
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 8px;
@@ -247,39 +246,39 @@ export default {
   display: inline-block;
 }
 
-.chat-message-sent {
+.xat-message-sent {
   background-color: #3498DB;
   align-self: flex-end;
   text-align: right;
   color: rgba(255, 255, 255, 0.863);
 }
 
-.chat-message-received {
+.xat-message-received {
   background-color: #ECF0F1;
   align-self: flex-start;
   text-align: left;
 }
 
-.chat-message-header {
+.xat-message-header {
   font-size: 0.9em;
   margin-bottom: 5px;
   font-weight: bold;
 }
 
-.chat-message-body {
+.xat-message-body {
   font-size: 1em;
   color: #000000;
 }
 
-.chat-message-sent .chat-message-body {
+.xat-message-sent .xat-message-body {
   color: white;
 }
 
-.chat-message-sent .chat-message-timestamp {
+.xat-message-sent .xat-message-timestamp {
   color: rgb(225, 225, 225);
 }
 
-.chat-message-timestamp {
+.xat-message-timestamp {
   font-size: 0.8em;
   color: #141414;
   text-align: right;
