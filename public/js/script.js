@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
     let currentBackgroundIndex = 0;
     const backgrounds = [
-        '/metrosport/metrosport/public/assets/fotos_fons/1.jpg',
-        '/metrosport/metrosport/public/assets/fotos_fons/2.jpg',
-        '/metrosport/metrosport/public/assets/fotos_fons/3.jpg',
-        '/metrosport/metrosport/public/assets/fotos_fons/4.jpg'
+        '/public/assets/fotos_fons/1.jpg',
+        '/public/assets/fotos_fons/2.jpg',
+        '/public/assets/fotos_fons/3.jpg',
+        '/public/assets/fotos_fons/4.jpg'
     ];
 
     function changeBackground() {

@@ -223,7 +223,7 @@ EOT;
             $response = Http::withHeaders([
                 "Authorization" => "Bearer $apiKey",
                 "Content-Type" => "application/json",
-                "HTTP-Referer" => "https://metrosport.example.com"
+                "HTTP-Referer" => "https://metrosport.ainhoablanco.me"
             ])->timeout(6000)->post("https://openrouter.ai/api/v1/chat/completions", [
                         "model" => "google/gemini-2.0-flash-001",
                         "messages" => $messages,
@@ -310,7 +310,7 @@ EOT;
         $response = Http::withHeaders([
             "Authorization" => "Bearer $apiKey",
             "Content-Type" => "application/json",
-            "HTTP-Referer" => "https://metrosport.example.com"
+            "HTTP-Referer" => "https://metrosport.ainhoablanco.me"
         ])->timeout(300)->post("https://openrouter.ai/api/v1/chat/completions", [
                     "model" => "google/gemini-2.0-flash-001",
                     "messages" => $messages,
@@ -637,7 +637,7 @@ EOT;
         $response = Http::withHeaders([
             "Authorization" => "Bearer $apiKey",
             "Content-Type" => "application/json",
-            "HTTP-Referer" => "https://metrosport.example.com"
+            "HTTP-Referer" => "https://metrosport.ainhoablanco.me"
         ])->timeout(60)->post("https://openrouter.ai/api/v1/chat/completions", [
                     "model" => "google/gemini-2.0-flash-001",
                     "messages" => $messages,
