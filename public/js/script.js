@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
     let currentBackgroundIndex = 0;
     const backgrounds = [
-        '/public/assets/fotos_fons/1.jpg',
-        '/public/assets/fotos_fons/2.jpg',
-        '/public/assets/fotos_fons/3.jpg',
-        '/public/assets/fotos_fons/4.jpg'
+        '/assets/fotos_fons/1.jpg',
+        '/assets/fotos_fons/2.jpg',
+        '/assets/fotos_fons/3.jpg',
+        '/assets/fotos_fons/4.jpg'
     ];
 
     function changeBackground() {
