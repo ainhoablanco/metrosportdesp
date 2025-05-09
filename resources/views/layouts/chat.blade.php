@@ -2,7 +2,7 @@
 
 @section('chat')
 <div class="chat">
-    <a href="{{ route('chat.index') }}"><img src="{{ asset('assets/iconos_nav/cerrar_sesion.png') }}" alt="Chat"></a>
+    <a href="{{ route('chat.index') }}"><img src="{{ asset('assets/iconos_nav/chat-icono.png') }}" alt="Chat"></a>
 </div>
 
 @endsection
