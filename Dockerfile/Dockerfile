@@ -1,15 +1,61 @@
-# Usar una imagen base oficial
+FROM php:8.2-fpm AS laravel
 
-FROM alpine:latest
+RUN apt-get update && apt-get install -y \
+    git \
+    curl \
+    libpng-dev \
+    libonig-dev \
+    libxml2-dev \
+    zip \
+    unzip \
+    nodejs \
+    npm \
+    && docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
 
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
+WORKDIR /metrosport.ainhoablanco.me/htdocs/
 
-# Etiqueta para identificar el mantenedor (opcional)
+# Copy all application files first
+COPY . .
 
-LABEL maintainer="tu_nombre"
+# Create necessary directories and set permissions
+RUN mkdir -p storage bootstrap/cache \
+    && chown -R www-data:www-data /var/www \
+    && chmod -R 775 storage bootstrap/cache
 
+# Now run Composer after all files are in place
+RUN composer install --no-interaction --optimize-autoloader
 
+# Stage 2: Producción con NGINX sin default.conf externo
+FROM nginx:latest
 
-# Imprimir un mensaje cuando se ejecute el contenedor
+# Crear configuración directamente
+RUN echo 'server {\n\
+    listen 80;\n\
+    index index.php index.html;\n\
+    root /metrosport.ainhoablanco.me/htdocs/public;\n\
+    \n\
+    location / {\n\
+    try_files $uri $uri/ /index.php?$query_string;\n\
+    }\n\
+    \n\
+    location ~ \.php$ {\n\
+    include fastcgi_params;\n\
+    fastcgi_pass 127.0.0.1:9000;\n\
+    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;\n\
+    fastcgi_index index.php;\n\
+    }\n\
+    \n\
+    location ~ /\.ht {\n\
+    deny all;\n\
+    }\n\
+    }' > /etc/nginx/conf.d/default.conf
 
-CMD echo "¡Hola, mundo desde mi propia imagen Docker!"
+COPY --from=laravel /metrosport.ainhoablanco.me/htdocs/public /metrosport.ainhoablanco.me/htdocs/public
+
+WORKDIR /metrosport.ainhoablanco.me/htdocs/
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
